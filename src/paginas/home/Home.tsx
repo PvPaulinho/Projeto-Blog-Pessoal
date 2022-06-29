@@ -1,11 +1,23 @@
 import React from "react";
+import { Grid, Paper } from "@material-ui/core";
 import './Home.css';
 
 function Home() {
     return (
         <>
-            <h1 className="titulo">Home</h1>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXjhqjeMVjxawyUvuL4gzRRAgj85iYJwJOVQ&usqp=CAU" alt="imagem de teste" className="img"/>
+            <Grid container spacing={2}>
+                <Grid item xs={12} sm={8}>
+                    <Paper style={{ height: "100vh", background: "blue"}} />
+                </Grid>
+                <Grid item container direction="column" xs={12} sm={4} spacing={2}>
+                    <Grid item>
+                        <Paper style={{ height: "49vh", background: "orange"}} />
+                    </Grid>
+                    <Grid item>
+                        <Paper style={{ height: "49vh", background: "green"}} />
+                    </Grid>
+                </Grid>
+            </Grid>
         </>
     );
 }
