@@ -1,24 +1,29 @@
-
-import React from 'react';
-import { Button, Paper } from '@material-ui/core';
-import './Home.css';
+import { Button, Grid, Typography } from '@material-ui/core';
 import { Box } from '@mui/material';
+import React from 'react';
+import './Home.css';
+
 
 function Home() {
     return (
         <>
-           <Paper>
-                <Box p={2}>
+            <Grid container direction="row" justifyContent="center" alignItems="center" style={{ backgroundColor: "#3F51B5" }}>
+                <Grid alignItems="center" item xs={6}>
+                    <Box paddingX={20} >
+                        <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" style={{ color: "white", fontWeight: "bold" }}>Seja bem vindo(a)!</Typography>
+                        <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" style={{ color: "white", fontWeight: "bold" }}>expresse aqui os seus pensamentos e opiniões!</Typography>
+                    </Box>
                     <Box display="flex" justifyContent="center">
-                        <h1>Título</h1>
+                        <Box marginRight={1}></Box>
+                        <Button variant="outlined" style={{ borderColor: "white", backgroundColor: "#3F51B5", color: "white" }}>Ver Postagens</Button>
                     </Box>
-                    <img src="https://img.olhardigital.com.br/wp-content/uploads/2021/11/One-Piece-Sem-Borda.jpg" alt="Imagem de One Piececap. 1000" style={{ width: "100%" , height: "100%" }} />
-                    <Box display="flex" justifyContent="center" p={3}>
-                        <Button variant='contained' color='primary'>Botão 1</Button>
-                        <Button variant='contained' color='secondary'>Botão 2</Button>
-                    </Box>
-                </Box>
-           </Paper>
+                </Grid>
+                <Grid item xs={6} >
+                    <img src="https://i.imgur.com/H88yIo2.png" alt="" width="500px" height="500px" />
+                </Grid>
+                <Grid xs={12} style={{ backgroundColor: "white" }}>
+                </Grid>
+            </Grid>
         </>
     );
 }
