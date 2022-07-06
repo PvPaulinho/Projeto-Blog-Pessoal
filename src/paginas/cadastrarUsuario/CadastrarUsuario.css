@@ -1,17 +1,16 @@
-.textos1 {
-    font-weight: bold !important
-}
-
-.imagem {
-
+.imagem2{
     background-image: url(https://img.olhardigital.com.br/wp-content/uploads/2021/11/One-Piece-Sem-Borda.jpg);
     background-repeat: no-repeat;
-    width: 100vw;
+    width: 100vh;
     min-height: 100vh;
     background-size: cover;
-    background-position: center
+    background-position: center;
 }
 
-.text-decorator-none{
-    text-decoration: none;
+.textos2{
+    font-weight: bold !important;
+}
+
+.btnCadastrar{
+    margin-right: 20px !important;
 }
