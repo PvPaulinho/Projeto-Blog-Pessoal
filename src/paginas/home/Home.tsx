@@ -1,10 +1,28 @@
 import { Button, Grid, Typography } from '@material-ui/core';
 import { Box } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import useLocalStorage from 'react-use-localstorage';
+import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
+import TabPostagem from '../../components/postagens/tabPostagem/TabPostagem';
 import './Home.css';
 
 
 function Home() {
+
+    let navigate = useNavigate();
+
+    const [token, setToken] = useLocalStorage('token');
+    
+    useEffect(() => {
+      if (token === "") {
+          alert("Você precisa estar logado")
+          navigate("/login")
+  
+      }
+  }, [token])
+
+
     return (
         <>
             <Grid container direction="row" justifyContent="center" alignItems="center" className='caixa'>
@@ -16,7 +34,9 @@ function Home() {
                         
                     </Box>
                     <Box display="flex" justifyContent="center">
-                        <Box marginRight={1}></Box>
+                        <Box marginRight={1}>
+                            <ModalPostagem />
+                        </Box>
                         <Button variant="outlined" className='botao'>Ver Postagens</Button>
                     </Box>
                 </Grid>
@@ -27,6 +47,7 @@ function Home() {
                     backgroundImage: 'url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c69267c8-b57b-4ed0-b136-88045c50e623/df2dj5c-90ed26c7-9909-44bf-88e0-68ce81f7c009.png/v1/fill/w_1125,h_633,q_80,strp/naruto_e_jiraya_by_mmayze_df2dj5c-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjMzIiwicGF0aCI6IlwvZlwvYzY5MjY3YzgtYjU3Yi00ZWQwLWIxMzYtODgwNDVjNTBlNjIzXC9kZjJkajVjLTkwZWQyNmM3LTk5MDktNDRiZi04OGUwLTY4Y2U4MWY3YzAwOS5wbmciLCJ3aWR0aCI6Ijw9MTEyNSJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.2g-Z4us77KMOAWIKninQ3UEronYa238Os8m4zpRa8lE)',
                     backgroundRepeat: 'no-repeat', width: "100vh", minHeight: "100vh", backgroundSize: "cover", backgroundPosition: "center"
                     }}>
+                        <TabPostagem />
                 </Grid>
             </Grid>
         </>

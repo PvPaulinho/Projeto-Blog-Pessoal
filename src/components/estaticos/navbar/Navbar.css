@@ -6,3 +6,7 @@
 .text-decorator-none{
     text-decoration: none;
 }
+
+.blogPessoal {
+    color: black !important;
+}
