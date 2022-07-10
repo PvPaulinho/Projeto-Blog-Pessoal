@@ -1,10 +1,11 @@
 import { Button, Card, CardActions, CardContent, Typography } from '@material-ui/core'
 import { Box } from '@mui/system'
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
 import Tema from '../../../models/Tema';
 import { buscaId, deleteId } from '../../../services/Service';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 function DeletarTema() {
 
@@ -12,7 +13,9 @@ function DeletarTema() {
 
   const { id } = useParams<{ id: string }>();
   
-  const [token, setToken] = useLocalStorage('token');
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+);
   
   const [tema, setTema] = useState<Tema>()
 
