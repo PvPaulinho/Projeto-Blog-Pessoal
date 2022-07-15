@@ -2,6 +2,7 @@ import { Button, Container, TextField, Typography } from '@material-ui/core';
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Tema from '../../../models/Tema';
 import { buscaId, post, put } from '../../../services/Service';
 import { TokenState } from '../../../store/tokens/tokensReducer';
@@ -26,7 +27,16 @@ function CadastrarTema() {
 
     useEffect(() => {
         if (token === "") {
-            alert("Você precisa estar logado")
+            toast.error('Você precisa estar logado', {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            })
             Navigate("/login")
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -67,14 +77,32 @@ function CadastrarTema() {
                     'Authorization': token
                 }
             })
-            alert('Tema atualizado');
+            toast.success('Tema atualizado', {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            })
         } else {
             await post(`/tema`, tema, setTema, {
                 headers: {
                     'Authorization': token
                 }
             })
-            alert('Tema cadastrado');
+            toast.success('Tema cadastrado', {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            })
         }
         back()
 

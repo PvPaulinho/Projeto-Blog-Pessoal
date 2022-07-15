@@ -3,6 +3,7 @@ import { Box } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import Postagem from '../../../models/Postagem'
 import { busca } from '../../../services/Service'
 import { TokenState } from '../../../store/tokens/tokensReducer'
@@ -21,7 +22,16 @@ function ListaPostagem() {
 
     useEffect(() => {
         if (token === "") {
-            alert("Você precisa estar logado")
+            toast.error('Você precisa estar logado', {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            })
             navigate("/login")
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps

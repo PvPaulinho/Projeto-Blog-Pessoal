@@ -7,6 +7,7 @@ import './Login.css';
 import { Box } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { addToken } from '../../store/tokens/actions';
+import { toast } from 'react-toastify';
 
 function Login (): JSX.Element{
 
@@ -45,10 +46,27 @@ function Login (): JSX.Element{
         e.preventDefault();
         try{
             await login("/usuarios/logar", userLogin, setToken)
-
-            alert('Usuário logado com sucesso!');
+            toast.success('Usuário logado com sucesso!', {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            })
         }catch(error){
-            alert('Dados do usuário inconsistentes. Erro ao logar!');
+            toast.error('Dados inconsistentes. Favor verificar as informações de cadastro.', {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            })
         }
     }
 

@@ -3,6 +3,7 @@ import { Box } from '@mui/system'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Tema from '../../../models/Tema';
 import { buscaId, deleteId } from '../../../services/Service';
 import { TokenState } from '../../../store/tokens/tokensReducer';
@@ -21,7 +22,16 @@ function DeletarTema() {
 
   useEffect(() => {
     if (token === "") {
-      alert("Você precisa estar logado")
+      toast.error('Você precisa estar logado', {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+    })
       navigate("/login")
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -49,7 +59,16 @@ function DeletarTema() {
         'Authorization': token
       }
     });
-    alert('Tema deletado com sucesso');
+    toast.success('Tema deletado', {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+  })
   }
 
   function nao() {
