@@ -23,6 +23,7 @@ function ListaTema() {
             alert("Você precisa estar logado")
             navigate("/login")
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token])
 
 
@@ -36,6 +37,7 @@ function ListaTema() {
 
     useEffect(()=>{
         getTema()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [temas.length])
 
     

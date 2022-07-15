@@ -28,14 +28,15 @@ function CadastrarTema() {
         if (token === "") {
             alert("Você precisa estar logado")
             Navigate("/login")
-
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token])
 
     useEffect(() => {
         if (id !== undefined) {
             findById(id)
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id])
 
     async function findById(id: string) {

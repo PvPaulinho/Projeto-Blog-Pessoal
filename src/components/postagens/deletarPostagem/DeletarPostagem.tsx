@@ -24,14 +24,15 @@ function DeletarPostagem() {
     if (token === "") {
       alert("Você precisa estar logado")
       navigate("/login")
-
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token])
 
   useEffect(() => {
     if (id !== undefined) {
       findById(id)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id])
 
   async function findById(id: string) {

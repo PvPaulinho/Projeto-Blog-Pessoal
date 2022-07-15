@@ -24,8 +24,8 @@ function CadastrarPostagem() {
         if (token === "") {
             alert("Você precisa estar logado")
             navigate("/login")
-
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token])
 
     const [tema, setTema] = useState<Tema>(
@@ -34,6 +34,7 @@ function CadastrarPostagem() {
             nome: '',
             descricao: ''
         })
+
     const [postagem, setPostagem] = useState<Postagem>({
         id: 0,
         titulo: '',
@@ -47,6 +48,7 @@ function CadastrarPostagem() {
             ...postagem,
             tema: tema
         })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [tema])
 
     useEffect(() => {
@@ -54,6 +56,7 @@ function CadastrarPostagem() {
         if (id !== undefined) {
             findByIdPostagem(id)
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id])
 
     async function getTemas() {

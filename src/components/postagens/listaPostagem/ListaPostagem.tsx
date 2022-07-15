@@ -24,6 +24,7 @@ function ListaPostagem() {
             alert("Você precisa estar logado")
             navigate("/login")
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token])
 
     async function getPost() {
@@ -37,7 +38,7 @@ function ListaPostagem() {
     useEffect(() => {
 
         getPost()
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [posts.length])
 
 
