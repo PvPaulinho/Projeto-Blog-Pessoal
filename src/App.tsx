@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/estaticos/navbar/Navbar';
 import Footer from './components/estaticos/footer/Footer';
@@ -16,9 +16,13 @@ import { Provider } from 'react-redux';
 import store from './store/store';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import { Editor } from '@tinymce/tinymce-react';
 
 
 function App() {
+
+
+  
   return (
     <Provider store={store}>
       <ToastContainer />
